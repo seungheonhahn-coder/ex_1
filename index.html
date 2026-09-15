@@ -1,0 +1,23 @@
+﻿<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>매출 인사이트 · 기업 비교 대시보드</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23204cdb'/%3E%3Cpath d='M8 24V16M16 24V10M24 24V6' stroke='white' stroke-width='4'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles.css"><script src="data.js" defer></script><script src="app.js" defer></script>
+</head><body>
+<header class="topbar"><a class="brand" href="index.html"><span class="logo">▥</span> 매출 인사이트</a><span class="local">PC 내부 처리 · 오프라인 사용</span></header>
+<main>
+<div class="heading"><div><p class="eyebrow">BUSINESS PERFORMANCE / 2021—2025</p><h1>숫자로 보는 기업의 성장</h1><p class="muted">가상기업 3곳의 월별 매출을 비교하고 변화의 흐름을 살펴보세요.</p></div><button id="reset" class="secondary">필터 초기화 ↺</button></div>
+<section class="filters" aria-label="분석 필터">
+<fieldset><legend>비교 기업</legend><div id="companies" class="company-options"></div></fieldset>
+<div class="period"><label>시작 연도<select id="start"></select></label><span>—</span><label>종료 연도<select id="end"></select></label></div>
+<fieldset><legend>집계 단위</legend><div class="segmented"><button id="monthly" aria-pressed="false">월간</button><button id="annual" aria-pressed="true">연간</button></div></fieldset>
+</section>
+<p id="status" class="status" aria-live="polite"></p><section id="kpis" class="kpis" aria-label="주요 지표"></section>
+<div class="charts"><section class="panel trend"><div class="panel-heading"><div><h2>매출 추이</h2><p id="chartSubtitle" class="muted"></p></div><span class="unit">단위: 억원</span></div><div id="legend" class="legend"></div><div id="chart" class="chart"></div><p class="chart-help">점에 마우스를 올리거나 Tab 키로 이동하면 매출을 확인할 수 있습니다.</p></section>
+<section class="panel"><div class="panel-heading"><div><h2>기업별 매출 비중</h2><p class="muted">선택 기간의 누적 매출</p></div></div><div id="share"></div></section></div>
+<section class="panel table-panel"><div class="panel-heading"><div><h2>상세 매출 데이터</h2><p id="tableSubtitle" class="muted"></p></div><button id="export" class="secondary">CSV 다운로드 ↓</button></div><div class="table-scroll"><table><caption class="sr-only">선택한 기간과 기업의 매출. 열 제목으로 정렬할 수 있습니다.</caption><thead id="thead"></thead><tbody id="tbody"></tbody><tfoot id="tfoot"></tfoot></table></div></section>
+<details class="notes"><summary>데이터 출처 및 계산 기준</summary><p>출처: 가상기업 3개 5개년매출데이터.xlsx · 월간매출 시트의 2021년 1월~2025년 12월, 60개 행. 금액 단위는 억원입니다. 실존 기업의 실적이 아닙니다.</p><p>누적 매출은 선택 기업·기간의 월 매출 합계, 월평균은 누적 매출 ÷ 선택 개월 수입니다. 마지막 연도 성장률은 선택 기업의 마지막 연도 매출을 직전 연도와 비교합니다. 직전 연도는 필터 밖이라도 원본에 있으면 사용하며, 2021년은 비교 자료가 없습니다. 비중은 선택 기업의 누적 합계 기준입니다.</p><p>모든 집계·정렬·다운로드는 브라우저에서 처리하며 외부 요청을 차단합니다. 원본에서 추출한 데이터가 함께 제공되므로 파일을 열 때 엑셀을 다시 읽지 않습니다. 표시값은 소수 둘째 자리까지 반올림합니다.</p></details>
+<footer><span>매출 인사이트</span><span>60개월의 기록, 하나의 시야.</span></footer>
+</main></body></html>
